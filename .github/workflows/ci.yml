@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: yarn
-    - run: yarn test
-    - run: yarn lint
     - run: yarn build
-  
+    - run: yarn publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
