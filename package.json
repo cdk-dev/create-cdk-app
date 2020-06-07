@@ -19,10 +19,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "ncc build ./index.ts -w -o dist/",
     "prerelease": "rimraf ./dist/",
-    "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
-    "prepublish": "yarn release"
+    "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register"
   },
   "devDependencies": {
     "@zeit/ncc": "latest",
