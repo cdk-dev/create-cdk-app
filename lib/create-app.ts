@@ -19,7 +19,7 @@ export async function createApp(props: CreateAppProps) {
     process.exit(1);
   }
   
-  await makeDir(prop.projectPath);
+  await makeDir(props.projectPath);
   process.chdir(props.projectPath);
   
   const templateName = template ? template : './templates/default';
