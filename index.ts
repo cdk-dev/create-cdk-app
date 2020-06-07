@@ -4,6 +4,7 @@ import arg from 'arg';
 import checkForUpdate from 'update-check';
 import packageJson from './package.json';
 import { createApp } from './lib/create-app';
+import { promptForTemplate } from './lib/templates';
 
 console.log('This package is still in developmet. Features will not work correctly until the dirst minor release');
 
@@ -37,6 +38,7 @@ if (args['--help']) {
 const debug = args['--debug'] ? args['--debug'] : false;
 
 async function run() {
+  const template = args['--template'] ? args['--template'] : promptForTemplate();
   if (args._.length === 0) {
     // no directory specified
   }
@@ -45,6 +47,7 @@ async function run() {
   // const projectName = path.basename(projectPath);
   
   await createApp({
+    template,
     projectPath
   });
 }

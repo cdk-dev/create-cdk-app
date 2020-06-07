@@ -22,7 +22,7 @@ $ yarn create cdk-app
 $ yarn create cdk-app -t my-app
 ```
 
-### An example from [CDK examples]()
+### An example from [CDK examples](https://github.com/aws-samples/aws-cdk-examples)
 
 ```bash
 $ yarn create cdk-app -t my-app
