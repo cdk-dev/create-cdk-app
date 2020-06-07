@@ -3,7 +3,7 @@ import path from 'path';
 import arg from 'arg';
 import checkForUpdate from 'update-check';
 import packageJson from './package.json';
-import { createApp } from './app';
+import { createApp } from './lib/create-app';
 
 console.log('This package is still in developmet. Features will not work correctly until the dirst minor release');
 
