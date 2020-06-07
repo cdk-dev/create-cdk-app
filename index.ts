@@ -39,7 +39,7 @@ async function run() {
   console.log('run');
 }
 
-const update = checkForUpdate(package).catch(() => null)
+const update = checkForUpdate(packageJson).catch(() => null)
 
 async function notifyUpdate(): Promise<void> {
   try {
