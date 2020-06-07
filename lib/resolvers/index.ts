@@ -16,7 +16,7 @@ export function getResolver(template: string, templateType: TemplateType): Resol
       console.error(`no resolver available for origin: ${origin}`);
       process.exit(1);
     }
-    return resolvers[origin](template);
+    return webResolvers[origin](template);
   } else if (templateType === TemplateType.LOCAL) {
     return new FilesystemResolver(template);
   } else {
