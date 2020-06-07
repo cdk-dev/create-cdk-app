@@ -1,2 +1,2 @@
-export { isDirEmpty } from './filesystem';
-export { isUrl } from './url';
+#!/usr/bin/env node
+console.log('hello world');
