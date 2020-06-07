@@ -1,4 +1,5 @@
 import { Resolver } from './resolver';
+import { isUrlOk } from '../utils';
 
 export class GithubResolver extends Resolver {
   constructor() {
