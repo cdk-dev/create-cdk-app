@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import arg from 'arg';
 import checkForUpdate from 'check-update';
-import package from './package.json';
+import packageJson from './package.json';
 // import { createApp } from './app';
 
 const args = arg({
@@ -14,7 +14,7 @@ const args = arg({
 });
 
 if (args['--version']) {
-  console.log(`create-cdk-app v${package.version}`);
+  console.log(`create-cdk-app v${packageJson.version}`);
   process.exit(0);
 }
 
