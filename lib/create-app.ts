@@ -13,7 +13,7 @@ export async function createApp(props: CreateAppProps) {
   const root = path.resolve(props.appPath);
   const appName = path.basename(root);
   const projectPath = path.join(root, appName);
-  const cwd = process.cwd();
+  // const cwd = process.cwd();
   
   if (!(isDirEmpty(projectPath))) {
     console.log(`directory is not empty`);
@@ -29,15 +29,12 @@ export async function createApp(props: CreateAppProps) {
     const downloader = getDownloader(templateUrl);
     // check if downloader has template
     if (await downloader.hasTemplate(templateName)) {
-      downloader.downloadAndExtract()
+      downloader.downloadAndExtract(projectPath)
     } else {
       console.error(`downloader could not handle template`);
       process.exit(1);
     }
   } else {
-    // render default
+    createDefaultTemplate(projectPath);
   }
-
-  // install dependencies
-  // git init
 }
