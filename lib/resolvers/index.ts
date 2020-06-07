@@ -5,7 +5,7 @@ import { Resolver } from './resolver';
 import { GithubResolver } from './github';
 import { FilesystemResolver } from './filesystem';
 
-const webResolvers = {
+const webResolvers: any = {
   'https://github.com': GithubResolver
 };
 
