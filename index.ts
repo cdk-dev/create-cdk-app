@@ -4,6 +4,8 @@ import checkForUpdate from 'update-check';
 import packageJson from './package.json';
 // import { createApp } from './app';
 
+console.log('This package is still in developmet. Features will not work correctly until the dirst minor release');
+
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,
