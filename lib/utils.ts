@@ -3,9 +3,7 @@ import { URL } from 'url';
 import got from 'got';
 
 export async function isDirEmpty(dir: string) {
-  return await fsp.readdir(dir).then(files => {
-    return files.length === 0;
-  }
+  return await fsp.readdir(dir).then(f => f.length === 0);
 };
 
 export function isUrl(url: string) {

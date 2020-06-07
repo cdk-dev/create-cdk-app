@@ -1,8 +1,8 @@
 import { Resolver } from './resolver';
 
 export class FilesystemResolver extends Resolver {
-  constructor() {
-    super(url: string);
+  constructor(url: string) {
+    super();
     this.url = url;
   }
   
