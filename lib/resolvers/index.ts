@@ -1,7 +1,7 @@
 
 import { TemplateType } from '../template';
 
-import { Resolver } from './downloader';
+import { Resolver } from './resolver';
 import { GithubResolver } from './github';
 import { FilesystemResolver } from './filesystem';
 

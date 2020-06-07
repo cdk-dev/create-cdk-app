@@ -1,7 +1,9 @@
 import path from 'path';
 import makeDir from 'make-dir';
 
-import { isDirEmpty, isUrl, validateUrl } from './utils';
+import { isDirEmpty } from './utils';
+import { getTemplateType } from './template';
+import { getResolver } from './resolver';
 
 export interface CreateAppProps {
   appPath: string;
@@ -28,11 +30,12 @@ export async function createApp(props: CreateAppProps) {
   // await validateTemplate(templateType);
     
   const resolver = getResolver(template, templateType);
-
+  /*
   if (await   resolver.hasTemplate(templateName)) {
         resolver.downloadAndExtract(projectPath);
   } else {
     console.error(`resolver could not handle template`);
     process.exit(1);
   }
+  */
 }
