@@ -6,23 +6,21 @@ import { getTemplateType } from './template';
 import { getResolver } from './resolvers';
 
 export interface CreateAppProps {
-  appPath: string;
+  projectPath: string;
   template?: string;
 };
 
 export async function createApp(props: CreateAppProps) {
   const template = props.template || 'default';
-  const root = path.resolve(props.appPath);
-  const appName = path.basename(root);
-  const projectPath = path.join(root, appName);
+  const appName = path.basename(props.projectPath);
   
-  if (!(isDirEmpty(projectPath))) {
+  if (!(isDirEmpty(props.projectPath))) {
     console.log(`directory is not empty`);
     process.exit(1);
   }
   
-  await makeDir(root);
-  process.chdir(root);
+  await makeDir(prop.projectPath);
+  process.chdir(props.projectPath);
   
   const templateName = template ? template : './templates/default';
   

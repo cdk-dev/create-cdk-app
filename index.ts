@@ -23,11 +23,9 @@ if (args['--version']) {
 if (args['--help']) {
   console.log(`
     Usage
-      $ create-cdk-app <template> <project-directory>
-    Arguments
-     <template>       Name of the template
-      <project-directory>
+      $ create-cdk-app <project-directory>
     Options
+      --template, -t  Template [name]|[url]
       --version, -v   Version number
       --help, -h      Displays this message
       --debug, -d     Enable verbose logging
@@ -38,7 +36,16 @@ if (args['--help']) {
 const debug = args['--debug'] ? args['--debug'] : false;
 
 async function run() {
-  console.log('run');
+  if (args._.length === 0) {
+    // no directory specified
+  }
+  
+  const projectPath = path.resolve(args._[0]);
+  // const projectName = path.basename(projectPath);
+  
+  await createApp({
+    projectPath
+  });
 }
 
 const update = checkForUpdate(packageJson).catch(() => null)
