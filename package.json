@@ -26,6 +26,10 @@
   },
   "devDependencies": {
     "@zeit/ncc": "latest",
+    "arg": "latest",
+    "got": "latest",
+    "make-dir": "latest",
+    "check-update": "latest",
     "rimraf": "latest",
     "typescript": "latest"
   }

@@ -6,14 +6,12 @@ import { isDirEmpty, isUrl, validateUrl } from './utils';
 export interface CreateAppProps {
   appPath: string;
   template?: string;
-  templatePath?: string;
 };
 
 export async function createApp(props: CreateAppProps) {
   const root = path.resolve(props.appPath);
   const appName = path.basename(root);
   const projectPath = path.join(root, appName);
-  // const cwd = process.cwd();
   
   if (!(isDirEmpty(projectPath))) {
     console.log(`directory is not empty`);
@@ -31,7 +29,6 @@ export async function createApp(props: CreateAppProps) {
     
   const resolver = getResolver(template, templateType);
 
-  // check if downloader has template
   if (await   resolver.hasTemplate(templateName)) {
         resolver.downloadAndExtract(projectPath);
   } else {

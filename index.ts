@@ -2,8 +2,7 @@
 import arg from 'arg';
 import checkForUpdate from 'check-update';
 import package from './package.json';
-
-import { createApp } from './app';
+// import { createApp } from './app';
 
 const args = arg({
   '--help': Boolean,
@@ -22,7 +21,10 @@ if (args['--version']) {
 if (args['--help']) {
   console.log(`
     Usage
-      $ create-cdk-app <template>
+      $ create-cdk-app <template> <project-directory>
+    Arguments
+     <template>       Name of the template
+      <project-directory>
     Options
       --version, -v   Version number
       --help, -h      Displays this message
@@ -34,9 +36,7 @@ if (args['--help']) {
 const debug = args['--debug'] ? args['--debug'] : false;
 
 async function run() {
-  createApp({
-    debug
-  });
+  console.log('run');
 }
 
 const update = checkForUpdate(package).catch(() => null)
