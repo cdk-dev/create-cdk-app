@@ -3,7 +3,7 @@ import makeDir from 'make-dir';
 
 import { isDirEmpty } from './utils';
 import { getTemplateType } from './template';
-import { getResolver } from './resolver';
+import { getResolver } from './resolvers';
 
 export interface CreateAppProps {
   appPath: string;
