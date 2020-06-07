@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import arg from 'arg';
-import * as checkForUpdate from 'check-update';
+import * as checkForUpdate from 'update-check';
 import packageJson from './package.json';
 // import { createApp } from './app';
 

@@ -27,7 +27,7 @@
     "arg": "latest",
     "got": "latest",
     "make-dir": "latest",
-    "check-update": "latest",
+    "update-check": "latest",
     "rimraf": "latest",
     "typescript": "latest"
   }
