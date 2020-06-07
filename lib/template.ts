@@ -1,23 +1,17 @@
+import { isUrl, isFilepath } from './utils';
+
 export enum TemplateType {
-  
+  EXTERNAL='EXTERNAL',
+  LOCAL='LOCAL',
+  STANDARD='STANDARD'
 };
 
-export class Template {
-  public url: string;
-
-  constructor(templateName: string) {
-    try {
-      this.url = new URL(props.template);
-    } catch (err) {
-      if (err.code !== 'ERR_INVALID_URL') {
-        console.error(err);
-        process.exit(1);
-      } else {
-        this.type = TemplateType
-    }
+export function getTemplateType(template: string): TemplateType {
+  if (isUrl(template)) {
+    return TemplateType.EXTERNAL;
+  } else if (isFilepath(example)) {
+    return TemplateType.LOCAL;
+  } else {
+    return TemplateType.STANDARD;
   }
-}
-
-{
-  name: 
-  packageFile: 
+};

@@ -23,18 +23,19 @@ export async function createApp(props: CreateAppProps) {
   await makeDir(root);
   process.chdir(root);
   
-  if (template) { 
-    const { templateUrl, templateName } = getTemplateUrl(template);
-    // get downloader for origin
-    const downloader = getDownloader(templateUrl);
-    // check if downloader has template
-    if (await downloader.hasTemplate(templateName)) {
-      downloader.downloadAndExtract(projectPath)
-    } else {
-      console.error(`downloader could not handle template`);
-      process.exit(1);
-    }
+  const templateName = template ? template : './templates/default';
+  
+  const templateType = getTemplateType(templateName);
+    
+  // await validateTemplate(templateType);
+    
+  const resolver = getResolver(template, templateType);
+
+  // check if downloader has template
+  if (await   resolver.hasTemplate(templateName)) {
+        resolver.downloadAndExtract(projectPath);
   } else {
-    createDefaultTemplate(projectPath);
+    console.error(`resolver could not handle template`);
+    process.exit(1);
   }
 }

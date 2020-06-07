@@ -1,6 +1,6 @@
-import { Downloader } from './downloader';
+import { Resolver } from './resolver';
 
-export class GithubDownloader extends Downloader {
+export class FilesystemResolver extends Resolver {
   constructor() {
     super();
   }

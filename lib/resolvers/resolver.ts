@@ -1,4 +1,4 @@
-export abstract class Downloader {
+export abstract class Resolver {
   public abstract async downloadAndExtract(): void;
   public abstract async hasTemplate(): boolean;
 }
