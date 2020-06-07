@@ -9,7 +9,7 @@ export class GithubResolver extends Resolver {
     this.url = url;
   }
   
-  public async hasTemplate(name: string, packageFile='cdk.json'): Promise<boolean> {
+  public async hasTemplate(name: string, packageFile='cdk.json'): Promise<Boolean> {
     return isUrlOk(`${this.url}/contents/${encodeURIComponent(name)}/${packageFile}`)
   }
   

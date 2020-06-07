@@ -9,8 +9,7 @@ const webResolvers = {
   'https://github.com': GithubResolver
 };
 
-export const getResolver(template: string, templateType: TemplateType): Resolver {
- 
+export function getResolver(template: string, templateType: TemplateType): Resolver {
   if (templateType === TemplateType.EXTERNAL) {
     const origin = '';
     if (!(origin in webResolvers)) {
