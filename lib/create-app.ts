@@ -11,6 +11,7 @@ export interface CreateAppProps {
 };
 
 export async function createApp(props: CreateAppProps) {
+  const template = props.template || 'default';
   const root = path.resolve(props.appPath);
   const appName = path.basename(root);
   const projectPath = path.join(root, appName);
