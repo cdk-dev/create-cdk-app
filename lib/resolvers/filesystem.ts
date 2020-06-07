@@ -1,6 +1,7 @@
 import { Resolver } from './resolver';
 
 export class FilesystemResolver extends Resolver {
+  public readonly url: string;
   constructor(url: string) {
     super();
     this.url = url;

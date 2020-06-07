@@ -2,6 +2,8 @@ import { Resolver } from './resolver';
 import { isUrlOk } from '../utils';
 
 export class GithubResolver extends Resolver {
+  public readonly url: string;
+
   constructor(url: string) {
     super();
     this.url = url;
