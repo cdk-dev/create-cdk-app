@@ -12,7 +12,7 @@ export function isUrl(url: string) {
   return false;
 };
 
-export function isFilepath(path; string) {
+export function isFilepath(path: string) {
   return false;
 };
 
