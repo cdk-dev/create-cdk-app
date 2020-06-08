@@ -9,6 +9,10 @@ const exampleLanguages = [
   'csharp'
 ];
 
+async function listCdkExamplesByLanguage(language: string): Promise<void> {
+  return
+}
+
 async function chooseLanguage(): Promise<String> {
   const language = await prompts({
     type: 'select',
