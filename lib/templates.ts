@@ -8,7 +8,7 @@ const exampleLanguages = [
   'csharp'
 ];
 
-export function promptForTemplate() {
+export async function promptForTemplate() {
   // choose cdktools, aws examples, default
   const template = await prompts({
     type: 'select',

@@ -23,6 +23,7 @@
     "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register"
   },
   "devDependencies": {
+    "@types/prompts": "latest",
     "@zeit/ncc": "latest",
     "arg": "latest",
     "got": "latest",
