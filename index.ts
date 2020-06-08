@@ -8,8 +8,6 @@ import { promptForTemplate } from './lib/templates';
 import { executeCommand } from './lib/utils';
 import { chooseLanguage } from './lib/templates';
 
-console.log('This package is still in developmet. Features will not work correctly until the dirst minor release');
-
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,
