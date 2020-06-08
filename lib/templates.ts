@@ -38,7 +38,12 @@ async function chooseLanguage(): Promise<String> {
     })
   });
   
-  return language;
+  if (!language.value) {
+    console.log('Please specify the language');
+    process.exit(1);
+  }
+  
+  return language.value;
 }
 
 export async function promptForTemplate(): Promise<string> {
