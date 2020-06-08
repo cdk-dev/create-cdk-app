@@ -1,4 +1,5 @@
 import prompts from 'prompts';
+import got from 'got';
 import { capitalize } from './utils';
 
 // https://github.com/aws-samples/aws-cdk-examples?files=1
@@ -13,8 +14,15 @@ async function listCdkExamplesByLanguage(language: string): Promise<void> {
   return
 }
 
-async function listCdkTemplates(language: string): Promise<void> {
-  return
+async function listRepoPath(repoId: string, path: string): Promise<any> {
+  const res = await got(
+    `https://api.github.com/repositories/${repoId}/contents/${path}`
+  )
+  return JSON.parse(res.body)
+}
+
+async function listCdkTemplates(language: string): Promise<any> {
+  return listRepoPath('', 'contents/templates');
 }
 
 async function chooseLanguage(): Promise<String> {
