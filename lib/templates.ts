@@ -38,5 +38,5 @@ export async function promptForTemplate() {
     process.exit(0);
   }
 
-  return template;
+  return '';
 }
