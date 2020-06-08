@@ -9,7 +9,7 @@ const exampleLanguages = [
   'csharp'
 ];
 
-async function chooseLanguage() {
+async function chooseLanguage(): Promise<String> {
   const language = await prompts({
     type: 'select',
     name: 'value',
@@ -21,6 +21,8 @@ async function chooseLanguage() {
       }
     })
   });
+  
+  return language;
 }
 
 export async function promptForTemplate(): Promise<string> {
