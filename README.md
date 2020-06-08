@@ -7,13 +7,13 @@ Create CDK apps from templates.
 **NPM**
 
 ```bash
-$ npx create-cdk-app
+$ npx create-cdk-app <options> <project-dir>
 ```
 
 **Yarn**
 
 ```bash
-$ yarn create cdk-app
+$ yarn create cdk-app <options> <project-dir>
 ```
 
 If you choose a `default` template, you will be prompted to choose a language. This is then passed to a child-process that runs [cdk init](https://docs.aws.amazon.com/cdk/latest/guide/tools.html#cli-init). This requires [aws-cdk](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) to be installed and available in the context of the shell.
