@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import path from 'path';
 import arg from 'arg';
+import makeDir from 'make-dir';
 import checkForUpdate from 'update-check';
 import packageJson from './package.json';
 import { createApp } from './lib/create-app';
@@ -53,6 +54,7 @@ async function run() {
 
   if (template === 'cdk-init') {
     try {
+      await makeDir(projectPath);
       process.chdir(projectPath); // cdk init must be run within the new directory
       const language = await chooseLanguage();
       console.log(`Initializing new cdk ${language} app with the cdk cli`);
