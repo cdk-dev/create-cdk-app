@@ -10,15 +10,15 @@ const exampleLanguages = [
   'csharp'
 ];
 
-async function listCdkExamplesByLanguage(language: string): Promise<void> {
-  return
-}
-
 async function listRepoPath(repoId: string, path: string): Promise<any> {
   const res = await got(
     `https://api.github.com/repositories/${repoId}/contents/${path}`
   )
   return JSON.parse(res.body)
+}
+
+async function listCdkExamplesByLanguage(language: string): Promise<void> {
+  return listRepoPath('', `contents/${language}`);
 }
 
 async function listCdkTemplates(language: string): Promise<any> {
