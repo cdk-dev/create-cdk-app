@@ -12,6 +12,8 @@ const args = arg({
   '--help': Boolean,
   '--version': Boolean,
   '--debug': Boolean,
+  '--template': String,
+  '-t': '--template',
   '-v': '--version',
   '-h': '--help',
   '-d': '--debug'
