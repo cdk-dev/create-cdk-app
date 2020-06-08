@@ -81,7 +81,7 @@ export async function promptForTemplate(): Promise<string> {
     name: 'value',
     message: 'Pick a template',
     choices: [
-      { title: 'Default cdk app', value: 'default' },
+      { title: 'Default cdk app', value: 'cdk-init' },
       { title: 'Example from the cdk-tools/templates repo', value: 'templates' }
     ],
   });
@@ -92,8 +92,8 @@ export async function promptForTemplate(): Promise<string> {
   }
 
   let choice: string;
-  if (template.value === 'default') {
-    choice = 'default';
+  if (template.value === 'cdk-init') {
+    choice = 'cdk-init';
   } else if (template.value === 'templates') {
     choice = `templates/${await chooseTemplate()}`;
   } else {

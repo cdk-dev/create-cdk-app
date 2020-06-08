@@ -51,7 +51,7 @@ async function run() {
   // handle template name
   const template = args['--template'] ? args['--template'] : await promptForTemplate();
 
-  if (template === 'default') {
+  if (template === 'cdk-init') {
     try {
       process.chdir(projectPath); // cdk init must be run within the new directory
       const language = await chooseLanguage();
