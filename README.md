@@ -2,6 +2,8 @@
 
 Create CDK apps from templates.
 
+View templates [here](https://github.com/cdk-tools/templates).
+
 ## Usage
 
 **NPM**
