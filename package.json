@@ -29,6 +29,7 @@
     "make-dir": "latest",
     "update-check": "latest",
     "rimraf": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "prompts": "latest"
   }
 }
