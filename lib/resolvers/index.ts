@@ -6,7 +6,8 @@ import { GithubResolver } from './github';
 import { FilesystemResolver } from './filesystem';
 
 const webResolvers: any = {
-  'https://github.com': GithubResolver
+  'https://github.com': GithubResolver,
+  'https://api.github.com': GithubResolver
 };
 
 export function getResolver(template: string, templateType: TemplateType): Resolver {

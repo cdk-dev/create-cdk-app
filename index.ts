@@ -40,17 +40,22 @@ if (args['--help']) {
 const debug = args['--debug'] ? args['--debug'] : false;
 
 async function run() {
-  const template = args['--template'] ? args['--template'] : await promptForTemplate();
+  // handle project directory
   if (args._.length === 0) {
-    // no directory specified
-  }
-  
+    console.error(`No project directory was specified`);
+    process.exit(1);
+  };
+
   const projectPath = path.resolve(args._[0]);
-  // const projectName = path.basename(projectPath);
-  
+
+  // handle template name
+  const template = args['--template'] ? args['--template'] : await promptForTemplate();
+  console.log(template);
+
   await createApp({
     template,
-    projectPath
+    projectPath,
+    debug: true
   });
 }
 

@@ -1,5 +1,6 @@
 import { Resolver } from './resolver';
 import { isUrlOk } from '../utils';
+import { downloadAndExtractRepo } from './utils';
 
 export class GithubResolver extends Resolver {
   public readonly url: string;
@@ -8,12 +9,12 @@ export class GithubResolver extends Resolver {
     super();
     this.url = url;
   }
-  
-  public async hasTemplate(name: string, packageFile='cdk.json'): Promise<Boolean> {
-    return isUrlOk(`${this.url}/contents/${encodeURIComponent(name)}/${packageFile}`)
+
+  public async hasTemplate(packageFile = 'cdk.json'): Promise<Boolean> {
+    return isUrlOk(`${this.url}/${packageFile}`);
   }
-  
-  public async downloadAndExtract() {
-  
+
+  public async downloadAndExtract(root: string, username: string, repo: string): Promise<void> {
+    return downloadAndExtractRepo(root, username, repo);
   }
 };

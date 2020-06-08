@@ -15,7 +15,10 @@ export function isFilepath(path: string) {
 };
 
 export async function isUrlOk(url: string): Promise<boolean> {
-  const res = await got(url).catch((e) => e)
+  const res = await got(url).catch((e) => e);
+  if (res.statusCode === 403) {
+    console.log(res)
+  }
   return res.statusCode === 200;
 };
 

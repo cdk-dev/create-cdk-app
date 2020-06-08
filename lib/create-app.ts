@@ -7,34 +7,38 @@ import { getResolver } from './resolvers';
 
 export interface CreateAppProps {
   projectPath: string;
-  template?: string;
+  template: string;
+  debug: boolean;
 };
 
-export async function createApp(props: CreateAppProps) {
-  const template = props.template || 'default';
-  const appName = path.basename(props.projectPath);
+export async function createApp({ projectPath, template, debug }: CreateAppProps) {
+  if (debug) {
+    console.log(`creating app with template: ${template} in directory: ${projectPath}`);
+  }
   
-  if (!(isDirEmpty(props.projectPath))) {
+  const appName = path.basename(projectPath);
+  
+  if (!(isDirEmpty(projectPath))) {
     console.log(`directory is not empty`);
     process.exit(1);
   }
   
-  await makeDir(props.projectPath);
-  process.chdir(props.projectPath);
-  
-  const templateName = template ? template : './templates/default';
-  
-  const templateType = getTemplateType(templateName);
+  await makeDir(projectPath);
+  process.chdir(projectPath);
+
+  const templateType = getTemplateType(template);
+  console.log(templateType)
     
   // await validateTemplate(templateType);
     
   const resolver = getResolver(template, templateType);
-  /*
-  if (await   resolver.hasTemplate(templateName)) {
-        resolver.downloadAndExtract(projectPath);
+  console.log(resolver);
+
+  if (await resolver.hasTemplate(template)) {
+    console.log('has template')
+        // resolver.downloadAndExtract(projectPath);
   } else {
     console.error(`resolver could not handle template`);
     process.exit(1);
   }
-  */
 }
