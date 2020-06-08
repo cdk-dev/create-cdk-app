@@ -1,6 +1,6 @@
 {
   "name": "create-cdk-app",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "keywords": [
     "cdk",
     "aws"
@@ -21,16 +21,23 @@
   "scripts": {
     "dev": "ncc build ./index.ts -w -o dist/",
     "prerelease": "rimraf ./dist/",
-    "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register"
+    "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
+    "@types/parse-github-url": "^1.0.0",
     "@types/prompts": "^2.0.8",
     "@types/rimraf": "^3.0.0",
     "@types/tar": "^4.0.3",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
     "@zeit/ncc": "^0.22.3",
     "arg": "^4.1.3",
+    "chalk": "^4.0.0",
+    "eslint": "^7.2.0",
     "got": "^11.3.0",
     "make-dir": "^3.1.0",
+    "parse-github-url": "^1.0.2",
     "prompts": "^2.3.2",
     "rimraf": "^3.0.2",
     "tar": "^6.0.2",

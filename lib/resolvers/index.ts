@@ -1,26 +1,16 @@
 
 import { TemplateType } from '../template';
-
 import { Resolver } from './resolver';
-import { GithubResolver } from './github';
-import { FilesystemResolver } from './filesystem';
+import { DefaultResolver } from './default';
 
-const webResolvers: any = {
-  'https://github.com': GithubResolver,
-  'https://api.github.com': GithubResolver
-};
-
-export function getResolver(template: string, templateType: TemplateType): Resolver {
+export function getResolver(template: string, templateType: TemplateType, debug=false): Resolver {
   if (templateType === TemplateType.EXTERNAL) {
-    const origin = '';
-    if (!(origin in webResolvers)) {
-      console.error(`no resolver available for origin: ${origin}`);
-      process.exit(1);
-    }
-    return webResolvers[origin](template);
-  } else if (templateType === TemplateType.LOCAL) {
-    return new FilesystemResolver(template);
+    console.error('no resolvers available for external urls');
+    process.exit(0);
   } else {
-    return new GithubResolver(template);
+    if (debug) {
+      console.log(`using default resolver`)
+    }
+    return new DefaultResolver(template);
   }
 }

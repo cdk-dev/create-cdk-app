@@ -1,17 +1,20 @@
-import { isUrl, isFilepath } from './utils';
+import { isUrl } from './utils';
 
 export enum TemplateType {
   EXTERNAL='EXTERNAL',
-  LOCAL='LOCAL',
   STANDARD='STANDARD'
-};
+}
 
-export function getTemplateType(template: string): TemplateType {
+export function getTemplateType(template: string, debug=false): TemplateType {
   if (isUrl(template)) {
+    if (debug) {
+      console.log('template is a url')
+    }
     return TemplateType.EXTERNAL;
-  } else if (isFilepath(template)) {
-    return TemplateType.LOCAL;
   } else {
+    if (debug) {
+      console.log('template was not a url. falling back to the standard resolver')
+    }
     return TemplateType.STANDARD;
   }
-};
+}

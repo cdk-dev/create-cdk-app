@@ -5,6 +5,8 @@ import checkForUpdate from 'update-check';
 import packageJson from './package.json';
 import { createApp } from './lib/create-app';
 import { promptForTemplate } from './lib/templates';
+import { executeCommand } from './lib/utils';
+import { chooseLanguage } from './lib/templates';
 
 console.log('This package is still in developmet. Features will not work correctly until the dirst minor release');
 
@@ -44,18 +46,32 @@ async function run() {
   if (args._.length === 0) {
     console.error(`No project directory was specified`);
     process.exit(1);
-  };
+  }
 
   const projectPath = path.resolve(args._[0]);
 
   // handle template name
   const template = args['--template'] ? args['--template'] : await promptForTemplate();
-  console.log(template);
+
+  if (template === 'default') {
+    try {
+      process.chdir(projectPath); // cdk init must be run within the new directory
+      const language = await chooseLanguage();
+      console.log(`Initializing new cdk ${language} app with the cdk cli`);
+      console.log('This might take a minute or two.')
+      const res = await executeCommand(`cdk init app --language=${language}`);
+      console.log(res);
+      process.exit(0);
+    } catch (e) {
+      console.error(e.toString());
+      process.exit(1);
+    }
+  }
 
   await createApp({
     template,
     projectPath,
-    debug: true
+    debug
   });
 }
 
@@ -66,8 +82,7 @@ async function notifyUpdate(): Promise<void> {
     const res = await update
     if (res?.latest) {
       console.log('A new version of `create-cdk-app` is available!')
-      console.log(
-        'You can update by running: yarn global add create-cdk-app');
+      console.log('You can update by running: yarn global add create-cdk-app');
     }
     process.exit();
   } catch {

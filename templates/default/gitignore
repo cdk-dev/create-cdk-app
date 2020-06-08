@@ -1,6 +1,0 @@
-cdk.out/
-dist/
-node_modules/
-.DS_Store
-*.pem
-*-debug.log*
