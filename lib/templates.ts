@@ -1,4 +1,5 @@
 import prompts from 'prompts';
+import { capitalize } from './utils';
 
 // https://github.com/aws-samples/aws-cdk-examples?files=1
 const exampleLanguages = [
@@ -7,6 +8,20 @@ const exampleLanguages = [
   'java',
   'csharp'
 ];
+
+async function chooseLanguage() {
+  const language = await prompts({
+    type: 'select',
+    name: 'value',
+    message: 'Pick a language',
+    choices: exampleLanguages.map(language => {
+      return {
+        title: capitalize(language),
+        value: language
+      }
+    })
+  });
+}
 
 export async function promptForTemplate(): Promise<string> {
   // choose cdktools, aws examples, default

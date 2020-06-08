@@ -18,3 +18,7 @@ export async function isUrlOk(url: string): Promise<boolean> {
   const res = await got(url).catch((e) => e)
   return res.statusCode === 200;
 };
+
+export function capitalize(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
