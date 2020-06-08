@@ -40,7 +40,7 @@ if (args['--help']) {
 const debug = args['--debug'] ? args['--debug'] : false;
 
 async function run() {
-  const template = args['--template'] ? args['--template'] : promptForTemplate();
+  const template = args['--template'] ? args['--template'] : await promptForTemplate();
   if (args._.length === 0) {
     // no directory specified
   }
